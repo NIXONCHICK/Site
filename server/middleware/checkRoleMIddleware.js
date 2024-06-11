@@ -1,4 +1,4 @@
-const { doesNotMatch } = require('assert')
+const { verify } = require('jsonwebtoken')
 
 module.exports = function (role) {
   return function (req, res, next) {

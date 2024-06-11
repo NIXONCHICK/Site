@@ -6,7 +6,7 @@ const ApiError = require('../error/ApiError')
 class DeviceController {
   async create(req, res, next) {
     try {
-      const { name, price, brandId, typeId, info } = req.body
+      let { name, price, brandId, typeId, info } = req.body
       const { img } = req.files
       let fileName = uuid.v4() + '.jpg'
       img.mv(path.resolve(__dirname, '..', 'static', fileName))
@@ -24,7 +24,7 @@ class DeviceController {
           DeviseInfo.create({
             title: i.title,
             description: i.description,
-            deviceId: device.id
+            deviseId: device.id
           })
         })
       }
